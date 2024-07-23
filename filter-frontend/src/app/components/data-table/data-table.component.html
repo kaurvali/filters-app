@@ -1,0 +1,24 @@
+<div class="data-table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Field Type</th>
+        <th>Comparison</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let filter of data">
+        <tr *ngFor="let criteria of filter.criteria_list; let i = index">
+          <td *ngIf="i === 0" [attr.rowspan]="filter.criteria_list.length">
+            {{ filter.name }}
+          </td>
+          <td>{{ criteria.field }}</td>
+          <td>{{ getReadableComparisonType(criteria.comparison) }}</td>
+          <td>{{ criteria.value }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

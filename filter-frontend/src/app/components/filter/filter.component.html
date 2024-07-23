@@ -1,0 +1,82 @@
+<div
+  class="form-component"
+  [class.modal]="isModal"
+  [class.collapsed]="isCollapsed"
+  [class.blurred]="showErrorPopup"
+>
+  <header (click)="toggleCollapse()">
+    <p>Add Filter</p>
+    <button class="close-button" (click)="toggleView()">
+      {{ isModal ? "x" : isCollapsed ? "v" : "-" }}
+    </button>
+  </header>
+  <div class="main" *ngIf="!isCollapsed || isModal">
+    <div class="sidebar">Filter name</div>
+    <div class="content">
+      <div class="form-group">
+        <input
+          [(ngModel)]="name"
+          type="text"
+          placeholder="Filter name"
+          required
+        />
+      </div>
+    </div>
+    <div *ngIf="!isCollapsed || isModal" class="sidebar">Criteria</div>
+    <div *ngIf="!isCollapsed || isModal" class="content">
+      <div *ngFor="let criteria of criterias; let i = index" class="form-group">
+        <select [(ngModel)]="criteria.field" (change)="onFieldChange(criteria)">
+          <option value="amount">Amount</option>
+          <option value="title">Title</option>
+          <option value="date">Date</option>
+        </select>
+        <select [(ngModel)]="criteria.comparison">
+          <option
+            *ngFor="let criteria of getComparisonTypes(criteria.field)"
+            [value]="criteria"
+          >
+            {{ getReadableComparisonType(criteria) }}
+          </option>
+        </select>
+        <ng-container [ngSwitch]="criteria.field">
+          <input
+            *ngSwitchCase="'amount'"
+            type="number"
+            placeholder="Value"
+            [(ngModel)]="criteria.value"
+            required
+          />
+          <input
+            *ngSwitchCase="'title'"
+            type="text"
+            placeholder="Value"
+            [(ngModel)]="criteria.value"
+            required
+          />
+          <input
+            *ngSwitchCase="'date'"
+            type="date"
+            placeholder="Value"
+            [(ngModel)]="criteria.value"
+            required
+          />
+        </ng-container>
+        <button (click)="removeCriteria(i)" class="remove-button">-</button>
+      </div>
+      <div *ngIf="!isCollapsed || isModal" class="form-group add-filter">
+        <button (click)="addCriteria()" class="add-filter-button">
+          + Add Row
+        </button>
+      </div>
+    </div>
+  </div>
+  <footer *ngIf="!isCollapsed || isModal">
+    <button class="close-button" (click)="close()">Close</button>
+    <button class="save-button" (click)="save()">Save</button>
+  </footer>
+</div>
+<div class="screen-overlay" *ngIf="showErrorPopup"></div>
+<div class="validation-popup" *ngIf="showErrorPopup">
+  <p>{{ errorMessage }}</p>
+  <button (click)="closeErrorPopup()">OK</button>
+</div>

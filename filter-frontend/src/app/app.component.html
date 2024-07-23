@@ -1,0 +1,20 @@
+<div class="wrapper" [class.blurred]="isModalShown">
+  <div class="row">
+    <app-data-table></app-data-table>
+  </div>
+  <div class="row">
+    <button (click)="showFilterDialog()">Add filter</button>
+  </div>
+  <div class="row">
+    <app-filter [isModal]="false"
+    [isCollapsed]="true"
+    (closeFilter)="onFilterClosed($event)"></app-filter>
+  </div>
+</div>
+
+<div *ngIf="isModalShown">
+  <app-filter
+    [isModal]="true"
+    (closeFilter)="onFilterClosed($event)"
+  ></app-filter>
+</div>
