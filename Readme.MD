@@ -7,11 +7,12 @@ This is a filters demo application made by Kaur Vali.
 - Backend is developed using Java 21 and Spring Boot 3.
 - Frontend is developed using Angular 18.
 - Backend application is using Liquibase for database history and creating schemas & data.
-- On Backend JaCoCo is installed and all relevant logic classes are covered with 100% coverage.
+- Backend has Swagger installed and a basic configuration has been done.
+- On backend JaCoCo is installed and all relevant logic classes are covered with 100% coverage.
 
 ## Running the application
 
-1. Configure the ```filters-backend/src/main/resources/application.yaml``` and set database url and username-password based on your database.
+1. Configure the ```filter-backend/src/main/resources/application.yaml``` and set database url and username-password based on your database.
 2. Runs by default on port 8080, frontend is port 4200 (angular default).
 3. Once that is done, application can be started built & started.
 4. Make sure that ```npm``` is installed on your computer. If not, please install it.

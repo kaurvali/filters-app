@@ -1,0 +1,42 @@
+---
+databaseChangeLog:
+  - changeSet:
+      id: insert-demo-data-into-filter-table
+      author: kaur.vali
+      changes:
+        - insert:
+            tableName: filter
+            columns:
+              - column:
+                  name: name
+                  value: 'Amount filter'
+              - column:
+                  name: created_date
+                  value: now()
+              - column:
+                  name: criteria_list
+                  value: '[{"field": "amount", "value": 200.0, "comparison": "greater_than"}]'
+        - insert:
+            tableName: filter
+            columns:
+              - column:
+                  name: name
+                  value: 'Gatsby filter'
+              - column:
+                  name: created_date
+                  value: now()
+              - column:
+                  name: criteria_list
+                  value: '[{"field": "title", "value": "gatsby", "comparison": "string_contains"}]'
+        - insert:
+            tableName: filter
+            columns:
+              - column:
+                  name: name
+                  value: 'DOB filter'
+              - column:
+                  name: created_date
+                  value: now()
+              - column:
+                  name: criteria_list
+                  value: '[{"field": "date", "value": "2020-01-25", "comparison": "date_before"}]'

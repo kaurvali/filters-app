@@ -1,0 +1,33 @@
+---
+databaseChangeLog:
+  - changeSet:
+      id: create-filter-table
+      author: kaur.vali
+      changes:
+        - createTable:
+            tableName: filter
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(256)
+                  constraints:
+                    nullable: false
+                    unique: true # as we don't have users for now
+              - column:
+                  name: created_date
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_modified_date
+                  type: datetime
+              - column:
+                  name: criteria_list
+                  type: jsonb
