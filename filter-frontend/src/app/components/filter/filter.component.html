@@ -4,12 +4,12 @@
   [class.collapsed]="isCollapsed"
   [class.blurred]="showErrorPopup"
 >
-  <header (click)="toggleCollapse()">
+  <div class="filter-header" (click)="toggleCollapse()">
     <p>Add Filter</p>
     <button class="close-button" (click)="toggleView()">
       {{ isModal ? "x" : isCollapsed ? "v" : "-" }}
     </button>
-  </header>
+  </div>
   <div class="main" *ngIf="!isCollapsed || isModal">
     <div class="sidebar">Filter name</div>
     <div class="content">
@@ -70,10 +70,10 @@
       </div>
     </div>
   </div>
-  <footer *ngIf="!isCollapsed || isModal">
+  <div class="filter-footer" *ngIf="!isCollapsed || isModal">
     <button class="close-button" (click)="close()">Close</button>
     <button class="save-button" (click)="save()">Save</button>
-  </footer>
+  </div>
 </div>
 <div class="screen-overlay" *ngIf="showErrorPopup"></div>
 <div class="validation-popup" *ngIf="showErrorPopup">

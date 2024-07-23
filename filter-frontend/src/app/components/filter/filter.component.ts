@@ -67,7 +67,6 @@ export class FilterComponent implements OnInit {
   close() {
     this.closeFilter.emit(this.isModal ? 'modal' : 'non-modal');
     this.isCollapsed = true;
-  
   }
 
   save() {
@@ -84,7 +83,7 @@ export class FilterComponent implements OnInit {
     this.errorMessage = undefined;
   }
 
-  openErrorPopup(errorMessage: string) {
+  private openErrorPopup(errorMessage: string) {
     this.showErrorPopup = true;
     this.errorMessage = errorMessage;
   }

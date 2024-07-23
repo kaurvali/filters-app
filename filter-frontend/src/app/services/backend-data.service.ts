@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Filter } from '../model/filter.model';
-import { v4 as uuidv4 } from 'uuid'; // Import the uuid function
+import { v4 as uuidv4 } from 'uuid';
 import { Criteria } from '../model/criteria.model';
 
 @Injectable({

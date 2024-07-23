@@ -29,8 +29,8 @@
   }
 }
 
-header,
-footer {
+.filter-header,
+.filter-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,13 +48,13 @@ footer {
   }
 }
 
-header {
+.filter-header {
   background-color: #4CAF50;
   color: white;
   min-height: 40px;
 }
 
-footer {
+.filter-footer {
   background-color: #f1f1f1;
   justify-content: center;
   min-height: 50px;
@@ -152,7 +152,7 @@ footer {
   }
 }
 
-.screen-overlay{
+.screen-overlay {
   top: 0;
   left: 0;
   width: 100vw;
